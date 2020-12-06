@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-content>
+      <h2 class="login-heading">Log In</h2>
+      <p>
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Username</mat-label>
+          <input matInput type="email" required>
+        </mat-form-field>
+      </p>
+  
+      <p>
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" required>
+        </mat-form-field>
+      </p>
+  
+      <!-- <mat-divider></mat-divider> -->
+  
+      <div fxLayout="row" fxLayoutAlign="space-evenly none" >
+        <button mat-flat-button color="primary" routerLink="/home">Login</button>
+        <button mat-flat-button color="primary" routerLink="/register">Register</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  
