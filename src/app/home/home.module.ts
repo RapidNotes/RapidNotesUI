@@ -10,6 +10,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
+import { QuillModule } from 'ngx-quill'
 
 
 @NgModule({
@@ -24,7 +25,9 @@ import {MatListModule} from '@angular/material/list';
     MatSidenavModule,
     CKEditorModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    // Only for lazy loading, needs changing on deployment
+    QuillModule.forRoot()
   ]
 })
 export class HomeModule { }
