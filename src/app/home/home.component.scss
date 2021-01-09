@@ -1,4 +1,18 @@
 .main-container {
     height: 100%;
+    // z-index: -1 !important;
   }
-  
+
+.sidenav {
+    width: 15%;
+    border: none;
+}
+
+.editor-container {
+  width: 60%;
+  height: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 25px;
+}

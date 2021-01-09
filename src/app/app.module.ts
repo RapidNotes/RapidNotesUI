@@ -13,12 +13,16 @@ import { HeaderComponent } from './header/header.component';
 import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
 import { HomeModule } from './home/home.module';
+import { AngularFireModule } from "@angular/fire";
+import { environment } from 'src/environments/environment';
+import { AppDialogComponent } from './shared/app-dialog/app-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    AppDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import { HomeModule } from './home/home.module';
     FlexLayoutModule,
     RegisterModule,
     LoginModule,
-    HomeModule
+    HomeModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
