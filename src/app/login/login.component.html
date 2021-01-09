@@ -1,26 +1,31 @@
-<mat-card>
-    <mat-card-content>
+<mat-card class ="mat-elevation-z6">
+    <mat-card-content [formGroup]="loginForm">
       <h2 class="login-heading">Log In</h2>
-      <p>
-        <mat-form-field appearance="outline" class="full-width-input">
-          <mat-label>Username</mat-label>
-          <input matInput type="email" required>
-        </mat-form-field>
-      </p>
-  
-      <p>
-        <mat-form-field appearance="outline" class="full-width-input">
-          <mat-label>Password</mat-label>
-          <input matInput type="password" required>
-        </mat-form-field>
-      </p>
-  
-      <!-- <mat-divider></mat-divider> -->
-  
-      <div fxLayout="row" fxLayoutAlign="space-evenly none" >
-        <button mat-flat-button color="primary" routerLink="/home">Login</button>
-        <button mat-flat-button color="primary" routerLink="/register">Register</button>
-      </div>
+      <!-- <form [formGroup]="loginForm"> -->
+        <p>
+          <mat-form-field appearance="outline" class="full-width-input">
+            <mat-label>Username</mat-label>
+            <input matInput type="email" required formControlName="email">
+          </mat-form-field>
+        </p>
+    
+        <p>
+          <mat-form-field appearance="outline" class="full-width-input">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" required formControlName="password">
+          </mat-form-field>
+        </p>
+    
+        <!-- <mat-divider></mat-divider> -->
+        <div class="alert alert-danger" *ngIf="invalidData">
+          Invalid Username or Password
+       </div>
+    
+        <div fxLayout="row" fxLayoutAlign="space-evenly none" >
+          <button mat-flat-button color="primary" (click)="login()">Login</button>
+          <button mat-flat-button color="primary" routerLink="/register">Register</button>
+        </div>
+      <!-- </form> -->
     </mat-card-content>
   </mat-card>
   

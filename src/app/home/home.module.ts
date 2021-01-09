@@ -7,11 +7,13 @@ import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { NotesDeckComponent } from './notes-deck/notes-deck.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
-  declarations: [HomeComponent, NotesDeckComponent],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -19,7 +21,10 @@ import { NotesDeckComponent } from './notes-deck/notes-deck.component';
     MatCardModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatSidenavModule
+    MatSidenavModule,
+    CKEditorModule,
+    MatIconModule,
+    MatListModule
   ]
 })
 export class HomeModule { }

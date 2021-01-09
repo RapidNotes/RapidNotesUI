@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotesDeckComponent } from './notes-deck.component';
+import { AppDialogComponent } from './app-dialog.component';
 
-describe('NotesDeckComponent', () => {
-  let component: NotesDeckComponent;
-  let fixture: ComponentFixture<NotesDeckComponent>;
+describe('AppDialogComponent', () => {
+  let component: AppDialogComponent;
+  let fixture: ComponentFixture<AppDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotesDeckComponent ]
+      declarations: [ AppDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotesDeckComponent);
+    fixture = TestBed.createComponent(AppDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,9 +1,24 @@
 <mat-sidenav-container class="main-container">
-    <mat-sidenav mode="side" opened>
-      Notebooks
+    <mat-sidenav class="sidenav mat-elevation-z6" mode="side" opened>
+      <mat-nav-list>
+        <mat-list-item>
+          <a matLine>
+            Create New Note
+          </a>
+            <mat-icon>add</mat-icon>
+        </mat-list-item>
+        <mat-list-item *ngFor="let note of listOfNotes">
+           <a matLine>{{ note }}</a>
+           <!-- <button mat-icon-button> -->
+              <mat-icon>note</mat-icon>
+           <!-- </button> -->
+        </mat-list-item>
+      </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <app-notes-deck></app-notes-deck>
+      <div class="editor-container mat-elevation-z8">
+        <ckeditor [editor]="Editor" [config]="editorConfig" data="<p>Enter Text Here</p>"></ckeditor>
+      </div>      
     </mat-sidenav-content>
   </mat-sidenav-container>
   
