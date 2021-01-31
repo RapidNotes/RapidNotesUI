@@ -3,6 +3,7 @@ import { Note } from '../_models/note';
 import { NotesService } from '../services/notes/notes.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NewNoteDialogComponent } from '../_dialogs/new-note-dialog/new-note-dialog/new-note-dialog.component';
+import { ConfirmDeleteDialogComponent } from '../_dialogs/confirm-delete-dialog/confirm-delete-dialog/confirm-delete-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -10,40 +11,54 @@ import { NewNoteDialogComponent } from '../_dialogs/new-note-dialog/new-note-dia
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public currentNote: Note;
+  public currentNote: Note | null;
   public listOfNotes: Array<String>;
+  isDataAvailable:boolean = false;
 
   constructor(private notesService: NotesService, public dialog: MatDialog) {
     this.currentNote = <Note>{};
     this.listOfNotes = [];
-    this.refreshPage()
+    // this.refreshPage()
    }
 
    refreshPage() {
+    this.currentNote = null;
+    this.isDataAvailable = false
     this.listOfNotes = [];
     var notes: Array<Note>
     this.notesService.getNotes().subscribe(res => {
-      var self = this;
-      notes = <Array<Note>>res;
-      notes.forEach(function (item, index) {
-        self.listOfNotes.indexOf(item.name) === -1 ? self.listOfNotes.push(item.name) : {};
-        if (item.current) {
-          self.currentNote = item;
-        }
-      });
+      console.log(res)
+      if (res.length >= 1) {
+        var self = this;
+        notes = <Array<Note>>res;
+        notes.forEach(function (item, index) {
+          self.listOfNotes.indexOf(item.name) === -1 ? self.listOfNotes.push(item.name) : {};
+          if (item.current) {
+            self.currentNote = item;
+          }
+        });
+      }
+      else {
+        var firstNote: Note = {createdAt: new Date(Date.now()), current: true, lastModifiedAt: new Date(Date.now()), name: "My First Note", note: ""};
+        this.currentNote = firstNote
+        this.listOfNotes.push("My First Note")
+        this.editNote()
+      }
       if (!this.currentNote) {
+        console.log('now current log found using 0 index')
         this.currentNote = notes[0];
         this.currentNote.current = true;
         this.editNote();
       }
+      this.isDataAvailable = true
     }, err => {
       console.log(err)
     });
    }
 
    editNote() {
-    this.currentNote.lastModifiedAt = new Date(Date.now());
-    this.notesService.updateNote(this.currentNote!.name, this.currentNote);
+    this.currentNote!.lastModifiedAt = new Date(Date.now());
+    this.notesService.updateNote(this.currentNote!.name, this.currentNote!);
    }
 
    deleteNote(name: String) {
@@ -66,11 +81,26 @@ export class HomeComponent implements OnInit {
    }
 
    createNewNote(name: String) {
-    this.currentNote.current = false;
+    this.currentNote!.current = false;
     this.editNote();
     var note: Note =  {createdAt: new Date(Date.now()), current: true, lastModifiedAt: new Date(Date.now()), name: <string>name, note: ""};
     this.notesService.updateNote(<string>name, note).then(() => {
       this.refreshPage();
+    });
+   }
+
+   openDeleteConfirmationDialog(name: String): void {
+     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
+      width: '300px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteNote(<string>name)
+      }
+      else {
+        console.log('The dialog was closed');
+      }
     });
    }
 
@@ -105,8 +135,6 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.editNoteName(<string>originalName, result)
-        console.log(originalName)
-        console.log(result)
         // this.createNewNote(result)
       }
       else {
@@ -116,7 +144,7 @@ export class HomeComponent implements OnInit {
    }
 
    changeCurrentNote(noteId: String) {
-     this.currentNote.current = false;
+     this.currentNote!.current = false;
      this.editNote();
     this.notesService.getNote(<string>noteId).subscribe(res => {
       this.currentNote = <Note>res
@@ -125,6 +153,9 @@ export class HomeComponent implements OnInit {
     })
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('ngoninit')
+    this.refreshPage()
+  }
 
 }
