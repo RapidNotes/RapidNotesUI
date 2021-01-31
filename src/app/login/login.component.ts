@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {AuthService} from '../services/auth/auth.service';
@@ -20,7 +21,9 @@ export class LoginComponent implements OnInit {
       )
   });
 
-  constructor(private authService: AuthService, private router:  Router) { }
+  constructor(private authService: AuthService, private router:  Router, private firestore: AngularFirestore) {
+    console.log(authService.user);
+   }
 
   ngOnInit(): void {
   }
@@ -33,8 +36,19 @@ export class LoginComponent implements OnInit {
         email: this.loginForm.controls.email.value,
         password: this.loginForm.controls.password.value
       };
-      this.authService.login(loginData.email, loginData.password);
-      this.router.navigate(["/home"])
+      this.authService.login(loginData.email, loginData.password).then((value => {
+        var self = this
+        this.firestore.collection('users').doc(value.user!.uid).ref.get().then(function(doc) {
+          if (doc.exists) {
+            self.authService.user = doc.data()
+            localStorage.setItem('user', JSON.stringify(self.authService.user));
+          }
+        }).finally(() =>
+          this.router.navigate(["/home"])
+        )})).catch(err => {
+                console.log('Something went wrong:',err.message);
+              });
+        
     }
 
   }

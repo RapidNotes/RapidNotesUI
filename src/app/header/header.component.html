@@ -1,9 +1,15 @@
 <mat-toolbar color="primary" class="expanded-toolbar" [class.mat-elevation-z4]="isActive">
     <a  mat-button  routerLink="/"><mat-icon>border_color</mat-icon><span style="margin-left: 10px;">Notes App</span></a>
-    <div class='header-button'>
+    <div class='header-button' *ngIf="authService.authState | async;else notloggenin">
       <!-- <a  mat-button  routerLink="/customer-list"  routerLinkActive="active">Customers</a>
       <a  mat-button  routerLink="/customer-create">Create Customer</a> -->
-      <a  mat-button  routerLink="/login">Login</a>
-      <a  mat-button  routerLink="/register">Register</a>
+      <a  mat-button (click)="signout()">Signout</a>
     </div>
+
+    <ng-template #notloggenin>
+      <div class='header-button'>
+        <a  mat-button  routerLink="/login">Login</a>
+        <a  mat-button  routerLink="/register">Register</a>
+      </div>
+    </ng-template>
 </mat-toolbar>

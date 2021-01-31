@@ -11,6 +11,10 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import { QuillModule } from 'ngx-quill'
+import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { environment } from 'src/environments/environment.local';
 
 
 @NgModule({
@@ -25,9 +29,12 @@ import { QuillModule } from 'ngx-quill'
     MatSidenavModule,
     CKEditorModule,
     MatIconModule,
+    FormsModule,
     MatListModule,
     // Only for lazy loading, needs changing on deployment
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ]
 })
 export class HomeModule { }

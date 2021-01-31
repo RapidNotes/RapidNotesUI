@@ -14,7 +14,7 @@ import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
 import { HomeModule } from './home/home.module';
 import { AngularFireModule } from "@angular/fire";
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.local';
 import { AppDialogComponent } from './shared/app-dialog/app-dialog.component';
 
 
