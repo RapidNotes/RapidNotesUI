@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from 'src/environments/environment.local';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { environment } from 'src/environments/environment.local';
     // Only for lazy loading, needs changing on deployment
     QuillModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatDialogModule
   ]
 })
 export class HomeModule { }

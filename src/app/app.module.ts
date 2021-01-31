@@ -9,6 +9,10 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderComponent } from './header/header.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
@@ -16,13 +20,15 @@ import { HomeModule } from './home/home.module';
 import { AngularFireModule } from "@angular/fire";
 import { environment } from 'src/environments/environment.local';
 import { AppDialogComponent } from './shared/app-dialog/app-dialog.component';
+import { NewNoteDialogComponent } from './_dialogs/new-note-dialog/new-note-dialog/new-note-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AppDialogComponent
+    AppDialogComponent,
+    NewNoteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,11 @@ import { AppDialogComponent } from './shared/app-dialog/app-dialog.component';
     RegisterModule,
     LoginModule,
     HomeModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
