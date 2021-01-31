@@ -1,4 +1,4 @@
-<mat-sidenav-container *ngIf="currentNote" class="main-container">
+<mat-sidenav-container *ngIf="isDataAvailable" class="main-container">
     <mat-sidenav class="sidenav mat-elevation-z6" mode="side" opened>
       <mat-nav-list>
         <mat-list-item (click)="openNewNoteDialog()">
@@ -13,7 +13,7 @@
               <button mat-icon-button (click)="openEditNoteNameDialog(note)">
               <mat-icon>mode</mat-icon>
               </button>
-              <button mat-icon-button>
+              <button mat-icon-button (click)="openDeleteConfirmationDialog(note)">
               <mat-icon>delete</mat-icon>
               </button>
               <!-- <mat-icon>note</mat-icon> -->
@@ -22,7 +22,7 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <quill-editor format='json'
-      [(ngModel)]="currentNote.note"
+      [(ngModel)]="currentNote!.note"
       (ngModelChange)="editNote()">
       </quill-editor> 
     </mat-sidenav-content>

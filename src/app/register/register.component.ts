@@ -41,7 +41,10 @@ export class RegisterComponent implements OnInit {
       this.authService.signup(loginData.email, loginData.password).then(value => {
         var data: User = {username: loginData.username, uid: value.user!.uid, email: loginData.email}
         this.authService.createOrUpdateUser(value.user!.uid, data)
-        console.log('Success!', value);
+        this.authService.user = data
+        localStorage.setItem('user', JSON.stringify(this.authService.user));
+      }).finally(() => {
+        console.log('Success!');
         this.router.navigate(["/login"])
       })
       .catch(err => {

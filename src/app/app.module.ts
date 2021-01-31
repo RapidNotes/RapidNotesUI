@@ -21,6 +21,7 @@ import { AngularFireModule } from "@angular/fire";
 import { environment } from 'src/environments/environment.local';
 import { AppDialogComponent } from './shared/app-dialog/app-dialog.component';
 import { NewNoteDialogComponent } from './_dialogs/new-note-dialog/new-note-dialog/new-note-dialog.component';
+import { ConfirmDeleteDialogComponent } from './_dialogs/confirm-delete-dialog/confirm-delete-dialog/confirm-delete-dialog.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { NewNoteDialogComponent } from './_dialogs/new-note-dialog/new-note-dial
     AppComponent,
     HeaderComponent,
     AppDialogComponent,
-    NewNoteDialogComponent
+    NewNoteDialogComponent,
+    ConfirmDeleteDialogComponent
   ],
   imports: [
     BrowserModule,
