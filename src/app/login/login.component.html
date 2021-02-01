@@ -21,9 +21,14 @@
           Invalid Username or Password
        </div>
     
-        <div fxLayout="row" fxLayoutAlign="space-evenly none" >
+        <div fxLayout="row" fxLayoutAlign="space-evenly none" style="margin-bottom: 20px;">
           <button mat-flat-button color="primary" (click)="login()">Login</button>
           <button mat-flat-button color="primary" routerLink="/register">Register</button>
+        </div>
+        <hr>
+        <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 20px;">
+          <button mat-flat-button class="googleSignIn" (click)="loginWithGoogle()">Sign In With Google</button>
+          <!-- <button mat-flat-button class="facebookSignIn" routerLink="/register" style="margin-left: 60px;">Sign In With Facebook</button> -->
         </div>
       <!-- </form> -->
     </mat-card-content>

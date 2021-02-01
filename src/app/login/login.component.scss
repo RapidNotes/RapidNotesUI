@@ -11,4 +11,37 @@ mat-card {
   .full-width-input {
     width: 90%;
   }
+
+  .mat-google {
+    background-color: green;
+    color: #fff;
+  }
+
+  .mat-facebook {
+    background-color: green;
+    color: #fff;
+  }
+
+  .googleSignIn {
+    background: url("../../assets/btn_google_signin_dark_normal_web@2x.png");
+    width: 25%;
+    background-size: 100%;
+    font-size: 0;
+  }
+
+  .googleSignIn:hover {
+    background: url("../../assets/btn_google_signin_dark_focus_web@2x.png");
+    width: 25%;
+    background-size: 100%;
+    font-size: 0;
+  }
+
+  .googleSignIn:focus {
+    background: url("../../assets/btn_google_signin_dark_pressed_web@2x.png");
+    width: 25%;
+    background-size: 100%;
+    font-size: 0;
+  }
+
+
   

@@ -14,6 +14,10 @@ export class NotesService {
     this.user = JSON.parse(localStorage.getItem('user')!);
    }
 
+   refreshUser() {
+    this.user = JSON.parse(localStorage.getItem('user')!);
+   }
+
   getNotes() {
     return this.firestore.collection('users')
     .doc(this.user.uid)
