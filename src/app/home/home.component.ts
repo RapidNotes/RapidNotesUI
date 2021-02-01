@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(private notesService: NotesService, public dialog: MatDialog) {
     this.currentNote = <Note>{};
     this.listOfNotes = [];
+    this.notesService.refreshUser()
     // this.refreshPage()
    }
 

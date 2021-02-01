@@ -38,6 +38,11 @@ export class AuthService {
     return this.firebaseAuth.signInWithEmailAndPassword(email, password)
   }
 
+  loginWithGoogle() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    return this.firebaseAuth.signInWithPopup(provider)
+  }
+
   logout(): Promise<void> {
     return this.firebaseAuth.signOut();
   }
