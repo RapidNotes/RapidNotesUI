@@ -7,7 +7,6 @@ import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import { QuillModule } from 'ngx-quill'
@@ -28,7 +27,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatSidenavModule,
-    CKEditorModule,
     MatIconModule,
     FormsModule,
     MatListModule,
