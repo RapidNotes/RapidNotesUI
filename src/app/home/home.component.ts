@@ -160,15 +160,6 @@ export class HomeComponent implements OnInit {
     })
    }
 
-   isCurrentNote(note: String) {
-     if (this.currentNote?.name == note) {
-       return true;
-     }
-     else {
-       return false
-     }
-   }
-
   ngOnInit(): void {
     console.log('ngoninit')
     this.refreshPage()
