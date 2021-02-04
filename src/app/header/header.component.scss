@@ -25,4 +25,14 @@
     justify-content: space-between;
     align-items: center;
     height: 6%;
+    padding: 0 6px !important;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .expanded-toolbar {
+      justify-content: space-between;
+      align-items: center;
+      height: 8%;
+      padding: 0 6px !important;
+    }
   }

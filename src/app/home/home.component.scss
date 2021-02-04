@@ -16,3 +16,14 @@
   padding: 20px;
   border-radius: 25px;
 }
+
+mat-sidenav, 
+mat-sidenav.mat-locked-open, 
+mat-sidenav.mat-closed.md-locked-open-add-active {
+    min-width: 200px !important;
+    width: 50vw !important;
+    max-width: 300px !important;
+}
+mat-list-item.active {
+  color: red;
+}

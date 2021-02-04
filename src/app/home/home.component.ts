@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { Note } from '../_models/note';
 import { NotesService } from '../services/notes/notes.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NewNoteDialogComponent } from '../_dialogs/new-note-dialog/new-note-dialog/new-note-dialog.component';
 import { ConfirmDeleteDialogComponent } from '../_dialogs/confirm-delete-dialog/confirm-delete-dialog/confirm-delete-dialog.component';
+import { MatSidenav } from '@angular/material/sidenav';
+import { SidenavService } from '../services/sidenav/sidenav.service';
+import { not } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +14,14 @@ import { ConfirmDeleteDialogComponent } from '../_dialogs/confirm-delete-dialog/
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  @ViewChildren('sidenav') children!: QueryList<MatSidenav>;
   public currentNote: Note | null;
   public listOfNotes: Array<String>;
-  isDataAvailable:boolean = false;
+  isDataAvailable: boolean = false;
 
-  constructor(private notesService: NotesService, public dialog: MatDialog) {
+
+  constructor(private notesService: NotesService, public dialog: MatDialog, private sidenavService: SidenavService) {
     this.currentNote = <Note>{};
     this.listOfNotes = [];
     this.notesService.refreshUser()
@@ -154,9 +160,27 @@ export class HomeComponent implements OnInit {
     })
    }
 
+   isCurrentNote(note: String) {
+     if (this.currentNote?.name == note) {
+       return true;
+     }
+     else {
+       return false
+     }
+   }
+
   ngOnInit(): void {
     console.log('ngoninit')
     this.refreshPage()
+    // console.log(this.sidenav)
+    // this.sidenavService.setSidenav(this.sidenav);
+  }
+
+  ngAfterViewInit() {
+    this.children.changes.subscribe(r => {
+      console.log(r.first)
+      this.sidenavService.setSidenav(r.first);
+    })
   }
 
 }

@@ -1,5 +1,7 @@
 mat-card {
     max-width: 600px;
+    width: 85vw;
+    min-width: 200px;
     text-align: center;
     margin: 10em auto;
   }
@@ -23,25 +25,28 @@ mat-card {
   }
 
   .googleSignIn {
-    background: url("../../assets/btn_google_signin_dark_normal_web@2x.png");
-    width: 25%;
-    background-size: 100%;
-    font-size: 0;
+    // background: url("../../assets/btn_google_signin_dark_normal_web@2x.png");
+    background-color: #ea4335;
+    color: white;
+    // max-width: 100%;
+    // height: auto;
+    // background-size: 100%;
+    // font-size: 0;
   }
 
-  .googleSignIn:hover {
-    background: url("../../assets/btn_google_signin_dark_focus_web@2x.png");
-    width: 25%;
-    background-size: 100%;
-    font-size: 0;
-  }
+  // .googleSignIn:hover {
+  //   background: url("../../assets/btn_google_signin_dark_focus_web@2x.png");
+  //   width: 25%;
+  //   background-size: 100%;
+  //   font-size: 0;
+  // }
 
-  .googleSignIn:focus {
-    background: url("../../assets/btn_google_signin_dark_pressed_web@2x.png");
-    width: 25%;
-    background-size: 100%;
-    font-size: 0;
-  }
+  // .googleSignIn:focus {
+  //   background: url("../../assets/btn_google_signin_dark_pressed_web@2x.png");
+  //   width: 25%;
+  //   background-size: 100%;
+  //   font-size: 0;
+  // }
 
 
   
