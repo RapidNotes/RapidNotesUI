@@ -4,6 +4,7 @@ mat-card {
     min-width: 200px;
     text-align: center;
     margin: 10em auto;
+    border-radius: 30px;
   }
   
   .login-heading {
@@ -25,28 +26,40 @@ mat-card {
   }
 
   .googleSignIn {
-    // background: url("../../assets/btn_google_signin_dark_normal_web@2x.png");
-    background-color: #ea4335;
-    color: white;
-    // max-width: 100%;
-    // height: auto;
-    // background-size: 100%;
-    // font-size: 0;
+    background: url("../../assets/btn_google_signin_dark_normal_web.png");
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    min-width: 100px;
+    width: 80vw;
+    max-width: 150px;
+    background-size: 100%;
+    font-size: 0;
   }
 
-  // .googleSignIn:hover {
-  //   background: url("../../assets/btn_google_signin_dark_focus_web@2x.png");
-  //   width: 25%;
-  //   background-size: 100%;
-  //   font-size: 0;
-  // }
+  .googleSignIn:hover {
+    background: url("../../assets/btn_google_signin_dark_focus_web.png");
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    min-width: 100px;
+    width: 80vw;
+    max-width: 150px;
+    background-size: 100%;
+    font-size: 0;
+  }
 
-  // .googleSignIn:focus {
-  //   background: url("../../assets/btn_google_signin_dark_pressed_web@2x.png");
-  //   width: 25%;
-  //   background-size: 100%;
-  //   font-size: 0;
-  // }
+  .googleSignIn:focus {
+    background: url("../../assets/btn_google_signin_dark_pressed_web.png");
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    min-width: 100px;
+    width: 80vw;
+    max-width: 150px;
+    background-size: 100%;
+    font-size: 0;
+  }
 
 
   

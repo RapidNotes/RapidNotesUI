@@ -6,6 +6,7 @@
 .sidenav {
     width: 15%;
     border: none;
+    background-color: #0a0f29a3;
 }
 
 .editor-container {
@@ -21,9 +22,14 @@ mat-sidenav,
 mat-sidenav.mat-locked-open, 
 mat-sidenav.mat-closed.md-locked-open-add-active {
     min-width: 200px !important;
-    width: 50vw !important;
+    width: 80vw !important;
     max-width: 300px !important;
 }
+
+mat-list-item.notactive {
+  color: #cabcbc;
+}
+
 mat-list-item.active {
-  color: red;
+  color: black;
 }
