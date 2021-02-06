@@ -1,7 +1,10 @@
 mat-card {
     max-width: 600px;
+    width: 85vw;
+    min-width: 200px;
     text-align: center;
     margin: 10em auto;
+    border-radius: 30px;
   }
   
   .register-heading {
