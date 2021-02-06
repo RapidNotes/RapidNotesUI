@@ -5,4 +5,12 @@
 @import '~quill/dist/quill.snow.css';
 
 html, body { height: 100%; }
+.mat-toolbar.mat-primary {
+    background: #282a3a;
+    color: #cabcbc;
+}
+.mat-flat-button.mat-primary {
+    background-color: #282a3a;
+    color: #cabcbc;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

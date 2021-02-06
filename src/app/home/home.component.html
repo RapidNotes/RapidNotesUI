@@ -1,14 +1,14 @@
 <mat-sidenav-container *ngIf="isDataAvailable" class="main-container" hasBackdrop="true">
-  <mat-sidenav #sidenav class="sidenav mat-elevation-z6" mode="side" opened>
+  <mat-sidenav #sidenav class="sidenav mat-elevation-z6" mode="push" opened>
     <mat-nav-list>
-      <mat-list-item (click)="openNewNoteDialog()">
+      <mat-list-item class="notactive" (click)="openNewNoteDialog()">
         <a matLine>
           New Note
         </a>
           <mat-icon>add</mat-icon>
       </mat-list-item>
       <hr>
-      <mat-list-item *ngFor="let note of listOfNotes" (click)="changeCurrentNote(note)" [matTooltip]='$any(note)' [ngClass]="{'active': currentNote!.name == note }">
+      <mat-list-item class="notactive" *ngFor="let note of listOfNotes" (click)="changeCurrentNote(note)" [matTooltip]='$any(note)' [ngClass]="{'active': currentNote!.name == note }">
           <a matLine>{{ note }}</a>
             <button mat-icon-button (click)="openEditNoteNameDialog(note)">
             <mat-icon>mode</mat-icon>
